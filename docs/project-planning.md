@@ -31,7 +31,7 @@ incomes page, and expenses page.
 * ![User Story Map](UserStoryMap.pdf)
 
 ### Research
-* Copilot
+Copilot
 * What I liked:
     * The styles of the application(design, transaction tags, icons)
     * User determined budgets for specific categories
@@ -39,7 +39,7 @@ incomes page, and expenses page.
 * What I didn't like:
     * The desktop version's main dashboard displays an excessive amount of information
 
-* Tiller
+Tiller
 * What I liked:
     * The "AutoCat" feature allows users to associate item descriptions with categorization rules
 * What I didn't like:

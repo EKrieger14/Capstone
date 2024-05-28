@@ -1,4 +1,5 @@
 export default {
   header: "Dashboard",
-  view: "home"
+  view: "home",
+  info: {}
 };

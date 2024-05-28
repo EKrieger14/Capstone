@@ -1,5 +1,6 @@
 import Navigo from "navigo";
 import { camelCase } from "lodash";
+import axios from "axios";
 
 import { header, nav, main, footer } from "./components";
 import * as store from "./store";
@@ -26,7 +27,48 @@ function afterRender() {
 
 render();
 
-router.on("/", () => render(store.home)).resolve();
+router.hooks({
+  before: (done, params) => {
+    // We need to know what view we are on to know what data to fetch
+    const view =
+      params && params.data && params.data.view
+        ? camelCase(params.data.view)
+        : "home";
+
+    switch (view) {
+      case "home":
+        axios
+          .get(
+            `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`
+          )
+          .then(response => {
+            store.home.info = {
+              company: response.data.top_gainers[0].ticker,
+              gains: response.data.top_gainers[0].change_percentage
+            };
+
+            console.log("Stock Data:", response.data);
+            done();
+          })
+
+          .catch(err => {
+            console.log(err);
+            done();
+          });
+        break;
+      default:
+        done();
+    }
+  },
+  already: params => {
+    const view =
+      params && params.data && params.data.view
+        ? camelCase(params.data.view)
+        : "home";
+
+    render(store[view]);
+  }
+});
 
 router
   .on({

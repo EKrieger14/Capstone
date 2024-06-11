@@ -29,7 +29,6 @@ render();
 
 router.hooks({
   before: (done, params) => {
-    // We need to know what view we are on to know what data to fetch
     const view =
       params && params.data && params.data.view
         ? camelCase(params.data.view)

@@ -24,6 +24,8 @@ footer {
   background-color: var(--secondary-color);
   align-items: flex-end;
 }
+
+/* Begin FormSpree Styles */
 #fs-frm label {
   color: var(--text-primary-color);
 }
@@ -148,6 +150,7 @@ footer {
 #input {
   color: black;
 }
+/* End FormSpree Styles */
 
 @media (min-width: 550px) {
   nav > .fa-bars {

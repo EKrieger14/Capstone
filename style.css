@@ -152,14 +152,51 @@ footer {
 }
 /* End FormSpree Styles */
 
-@media (min-width: 550px) {
-  nav > .fa-bars {
+@media (max-width: 549px) {
+  .hidden--mobile {
     display: none;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  nav > i {
+    padding: 1rem;
+    font-size: 2em;
+  }
+
+  nav > ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 0;
+  }
+
+  nav > ul > li {
+    padding: 0.5rem;
+    list-style-type: none;
   }
 }
 
-@media (max-width: 550px) {
-  .hidden--mobile {
+@media (min-width: 550px) {
+  nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 0;
+  }
+
+  nav > ul > li {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid;
+    padding: 0.5rem 0.5rem;
+    background-color: var(--text-primary-color);
+  }
+
+  nav > .fa-bars {
     display: none;
   }
 }

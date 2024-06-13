@@ -5,7 +5,7 @@ export default state => html`
     <h2>SavvyCoders Fullstack Capstone Project</h2>
   </section>
   <h3>
-    In todays market, the top gainer is ${state.info.company} with a
-    ${state.info.gains} increase!
+    Daily Stock: In todays market, the top gainer is ${state.info.company} with
+    a ${state.info.gains} increase!
   </h3>
 `;

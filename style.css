@@ -148,9 +148,54 @@ footer {
   max-width: 50%;
 }
 #input {
-  color: black;
+  color: var(--text-primary-color);
 }
+
 /* End FormSpree Styles */
+
+form {
+  border: solid 1px var(--text-primary-color);
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem;
+}
+
+form > * {
+  margin: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid var(--text-primary-color);
+  padding: 8px 10px;
+}
+
+th[scope='col'] {
+  background-color: var(--text-primary-color);
+  color: var(--secondary-color);
+}
+
+tr {
+  background-color: var(--secondary-color);
+}
+
+td {
+  text-align: left;
+}
+
+#incomeTable > * {
+  margin: 0.5rem;
+}
+
+#expenseTable > * {
+  margin: 0.5rem;
+}
+
+#bio {
+  margin: 1rem 1rem;
+}
+
+/* Start Media Queries */
 
 @media (max-width: 549px) {
   .hidden--mobile {
@@ -179,6 +224,18 @@ footer {
     padding: 0.5rem;
     list-style-type: none;
   }
+
+  form > input[type="submit"] {
+    width: 40%;
+    margin: 0.5rem;
+    margin-right: auto;
+  }
+
+  #fs-frm [type="submit"] {
+    width: 40%;
+    margin: 0.5rem;
+    margin-right: auto;
+  }
 }
 
 @media (min-width: 550px) {
@@ -199,4 +256,17 @@ footer {
   nav > .fa-bars {
     display: none;
   }
+
+  form > input[type="submit"] {
+    width: 15%;
+    margin: 0.5rem;
+    margin-right: auto;
+  }
+
+  #fs-frm [type="submit"] {
+    width: 15%;
+    margin: 0.5rem;
+    margin-right: auto;
+  }
 }
+/* End Media Queries */

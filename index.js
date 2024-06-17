@@ -16,13 +16,69 @@ function render(state = store.home) {
   `;
   router.updatePageLinks();
 
-  afterRender();
+  afterRender(state);
 }
 
-function afterRender() {
+function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+
+  if (state.view === "expense") {
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const inputList = event.target.elements;
+      console.log("Input Element List", inputList);
+
+      const requestData = {
+        title: inputList.title.value,
+        amount: inputList.amount.value,
+        date: inputList.date.value,
+        description: inputList.description.value
+      };
+
+      console.log("request Body", requestData);
+
+      axios
+        .post(`${process.env.EXPENSE_TRACKER_API_URL}/expenses`, requestData)
+        .then(response => {
+          store.expense.expenses.push(response.data);
+          router.navigate("/expense");
+        })
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
+
+  if (state.view === "income") {
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const inputList = event.target.elements;
+      console.log("Input Element List", inputList);
+
+      const requestData = {
+        title: inputList.title.value,
+        amount: inputList.amount.value,
+        date: inputList.date.value,
+        description: inputList.description.value
+      };
+
+      console.log("request Body", requestData);
+
+      axios
+        .post(`${process.env.EXPENSE_TRACKER_API_URL}/incomes`, requestData)
+        .then(response => {
+          store.income.incomes.push(response.data);
+          router.navigate("/income");
+        })
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
 }
 
 render();
@@ -52,6 +108,34 @@ router.hooks({
 
           .catch(err => {
             console.log(err);
+            done();
+          });
+        break;
+
+      case "expense":
+        axios
+          .get(`${process.env.EXPENSE_TRACKER_API_URL}/expenses`)
+          .then(response => {
+            console.log("response", response);
+            store.expense.expenses = response.data;
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+
+      case "income":
+        axios
+          .get(`${process.env.EXPENSE_TRACKER_API_URL}/incomes`)
+          .then(response => {
+            console.log("response", response);
+            store.income.incomes = response.data;
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
             done();
           });
         break;

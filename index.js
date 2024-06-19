@@ -1,9 +1,10 @@
 import Navigo from "navigo";
 import { camelCase } from "lodash";
 import axios from "axios";
-
 import { header, nav, main, footer } from "./components";
 import * as store from "./store";
+import Chart from "chart.js/auto";
+import "chartjs-adapter-date-fns";
 
 const router = new Navigo("/");
 

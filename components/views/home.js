@@ -1,6 +1,9 @@
 import html from "html-literal";
 
 export default state => html`
+  <section id="chart-container">
+    <canvas id="chart"></canvas>
+  </section>
   <section id="jumbotron">
     <h2>SavvyCoders Fullstack Capstone Project</h2>
   </section>

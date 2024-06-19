@@ -1,5 +1,7 @@
 export default {
   header: "Dashboard",
   view: "home",
-  info: {}
+  info: {},
+  incomes: [],
+  expenses: []
 };

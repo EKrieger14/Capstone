@@ -194,11 +194,17 @@ td {
 #bio {
   margin: 1rem 1rem;
 }
+
 #chart-container {
   background-color: white;
   max-height: 70vh;
-  max-width: 80vw;
+  max-width: 70vw;
   margin: auto;
+}
+
+#homeTitle {
+margin: 1rem 1rem;
+text-align: center;
 }
 /* Start Media Queries */
 

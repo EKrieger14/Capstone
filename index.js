@@ -146,8 +146,8 @@ router.hooks({
             `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`
           );
           store.home.info = {
-            company: dailyStockResponse.data.top_gainers[0].ticker,
-            gains: dailyStockResponse.data.top_gainers[0].change_percentage
+            company: dailyStockResponse?.data?.top_gainers?.[0]?.ticker ?? "NA",
+            gains: dailyStockResponse?.data?.top_gainers?.[0]?.change_percentage ?? "NA"
           };
 
           console.log("Stock Data:", dailyStockResponse.data);

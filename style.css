@@ -206,6 +206,7 @@ td {
 margin: 1rem 1rem;
 text-align: center;
 }
+
 /* Start Media Queries */
 
 @media (max-width: 549px) {
@@ -247,6 +248,11 @@ text-align: center;
     margin: 0.5rem;
     margin-right: auto;
   }
+
+  .aboutPic > img {
+    width: 300px;
+    height: auto;
+  }
 }
 
 @media (min-width: 550px) {
@@ -279,5 +285,14 @@ text-align: center;
     margin: 0.5rem;
     margin-right: auto;
   }
+
+  #bio {
+  display: flex;
+  align-items: center;
+}
+
+.aboutPic {
+  margin-right: 14px;
+}
 }
 /* End Media Queries */
